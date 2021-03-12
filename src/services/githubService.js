@@ -8,7 +8,11 @@ import {
 const getCommitsList = async (author, repo) => {
     if (author && repo) {
         let url = buildUrl(GITHUB_API_URL, {
-            path: "repos/" + author + "/" + repo + "/commits"
+            path: "repos/" + author + "/" + repo + "/commits",
+            queryParams:{
+                per_page:100,
+                //page:2
+            }
         })
 
         let res = [];
